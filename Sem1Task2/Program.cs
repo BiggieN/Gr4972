@@ -5,11 +5,9 @@ int secondNumber = int.Parse(Console.ReadLine());
 
 if (firstNumber > secondNumber)
 {
-    Console.Write("max = ");
-    Console.WriteLine(firstNumber);
+    Console.Write("max = " + firstNumber);
 } 
 else
 {
-    Console.Write("max = ");
-    Console.Write(secondNumber);
+    Console.Write("max = " + secondNumber);
 }
