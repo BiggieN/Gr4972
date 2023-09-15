@@ -9,13 +9,13 @@ int ReadData(string msg)
 }
 
 //По координатам точки определяем номер четверти
-int QuterTest(int quarter)
+string QuterTest(int quarter)
 {
-    if (quarter == 1) return (100, 100);
-    if (quarter == 2) return (-100, 100);
-    if (quarter == 3) return (-100, -100);
-    if (quarter == 4) return (100, -100);
-    return 0;
+    if (quarter == 1) return "(100, 100)";
+    if (quarter == 2) return "(-100, 100)";
+    if (quarter == 3) return "(-100, -100)";
+    if (quarter == 4) return "(100, -100)";
+    return "0";
 }
 
 //Печатаем результат
@@ -27,6 +27,6 @@ void PrintResult(string msg)
 
 int quarter = ReadData("Введите четверть: ");
 
-int x, y = QuterTest(quarter);
+//int x, y = QuterTest(quarter);
 
-PrintResult("Диапазон возможных координат точек в этой четверти по оси Х от 0 до " + x + " , по оси Y от 0 до " + y);
+PrintResult($"Диапазон возможных координат точек в этой четверти лежит в диапазоне {QuterTest(quarter)}");
