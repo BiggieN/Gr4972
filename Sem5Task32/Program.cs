@@ -1,58 +1,41 @@
-﻿using System;
+﻿//Задача 32: Напишите программу замена элементов массива: положительные элементы замените на соответствующие отрицательные, и наоборот.
 
-public class Answer
+//Заполняем одномерный массив
+int[] GenArray(int num, int lowBorder, int highBorder){
+    
+    int[] array = new int[num];
+    
+    for (int i = 0; i < num; i++)
+    {
+        array[i] = new Random().Next(lowBorder, highBorder+1);
+    }
+
+    return array;
+}
+
+// Печатаем результат
+void PrintArray(int[] arr)
 {
-    static bool IsPalindrome(int number)
+    Console.Write("[");
+    for (int i = 0; i < arr.Length - 1; i++)
     {
-        // Введите свое решение ниже
-        if (number < 9999)
-        {
-            Console.WriteLine("Число не пятизначное");
-            return false;
-        }
-        else
-        {
-            int[] temp = new int[5];
-            //Инициализируем дополнительные переменные - флаги
-            //int i = 1;
-            int j = 100;
-            int k = 10;
-            //int thirdNumber = -2;
-            //Раскладываем число на цифры с помощью дополнительных переменных
-            temp[0] = number % 10;
-            number -= number % 10;
-            for (int i = 1; i < 5; i++)
-            {
-                temp[i] = (number % j) / k;
-                number -= (number % j);
-                j *= 10;
-                k *= 10;
-            }
-            if (temp[0] == temp[4] && temp[1] == temp[3])
-            {
-                return true;
-            }
-        }
+        Console.Write(arr[i] + ", ");
+        
     }
+    Console.WriteLine(arr[arr.Length - 1] + "]");
 }
 
-// Не удаляйте и не меняйте метод Main! 
-static public void Main(string[] args)
+//Инвертируем массив методом умножения на -1
+void InverseArray(int[] arr)
 {
-    int number;
-
-    if (args.Length >= 1)
+    for (int i = 0; i < arr.Length - 1; i++)
     {
-        number = int.Parse(args[0]);
-    }
-    else
-    {
-        // Здесь вы можете поменять значения для отправки кода на Выполнение
-        number = 4546;
-    }
+        arr[i] *= -1;
+    }   
+}
 
-    // Не удаляйте строки ниже
-    bool result = IsPalindrome(number);
-    System.Console.WriteLine($"{result}");
-}
-}
+// Вызываем генерацию массива, выводим изначальный массив, инвертируем массив и выводим инвертированный массив
+int[] array = GenArray(12,-9,9);
+PrintArray(array);
+InverseArray(array);
+PrintArray(array);

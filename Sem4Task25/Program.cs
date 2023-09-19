@@ -54,8 +54,6 @@ int a = int.Parse(ReadData("Введите число А"));
 int b = int.Parse(ReadData("Введите число B"));
 string operand = ReadData("Введите операцию (+, -, *, /, ^)");
 
-//double result = getResult(a, b, operand);
-
 double result = 0;
 
 switch (operand)
