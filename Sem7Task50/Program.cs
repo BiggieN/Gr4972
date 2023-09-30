@@ -68,10 +68,11 @@ public class Answer
         }
         else
         {
-            tempMatrix[0] = matrix[columnPosition, rowPosition];
+            tempMatrix[0] = matrix[columnPosition-1, rowPosition-1];
             tempMatrix[1] = 0;
         }
         return tempMatrix;
+
     }
 
     public static void PrintCheckIfError(int[] results, int X, int Y)
@@ -87,33 +88,34 @@ public class Answer
         }
 
     }
-}
 
-// Не удаляйте и не меняйте метод Main! 
-public static void Main(string[] args)
-{
-    int n, m, k, x, y;
 
-    if (args.Length >= 5)
+    // Не удаляйте и не меняйте метод Main! 
+    public static void Main(string[] args)
     {
-        n = int.Parse(args[0]);
-        m = int.Parse(args[1]);
-        k = int.Parse(args[2]);
-        x = int.Parse(args[3]);
-        y = int.Parse(args[4]);
-    }
-    else
-    {
-        // Здесь вы можете поменять значения для отправки кода на Выполнение
-        n = 3;
-        m = 4;
-        k = 2;
-        x = 2;
-        y = 3;
-    }
+        int n, m, k, x, y;
 
-    // Не удаляйте строки ниже
-    int[,] result = CreateIncreasingMatrix(n, m, k);
-    PrintArray(result);
-    PrintCheckIfError(FindNumberByPosition(result, x, y), x, y);
+        if (args.Length >= 5)
+        {
+            n = int.Parse(args[0]);
+            m = int.Parse(args[1]);
+            k = int.Parse(args[2]);
+            x = int.Parse(args[3]);
+            y = int.Parse(args[4]);
+        }
+        else
+        {
+            // Здесь вы можете поменять значения для отправки кода на Выполнение
+            n = 4;
+            m = 5;
+            k = 3;
+            x = 2;
+            y = 2;
+        }
+
+        // Не удаляйте строки ниже
+        int[,] result = CreateIncreasingMatrix(n, m, k);
+        PrintArray(result);
+        PrintCheckIfError(FindNumberByPosition(result, x, y), x, y);
+    }
 }
