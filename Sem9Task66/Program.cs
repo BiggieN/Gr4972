@@ -31,13 +31,13 @@ int ReadData(string msg)
 
 int SumNaturalRec(int m, int n)
 {
-    if (m < n)
+    if (m <= n)
     {
-        return m + SumNaturalRec(m, n + 1);
+        return m + SumNaturalRec(m + 1, n);
     }
     return 0;
 }
 
 int m = ReadData("Введите m: ");
 int n = ReadData("Введите n: ");
-Console.WriteLine((m>n)?SumNaturalRec(n, m):SumNaturalRec(m, n));
+Console.WriteLine((m > n) ? SumNaturalRec(n, m) : SumNaturalRec(m, n));
